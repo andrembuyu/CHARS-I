@@ -1,2 +1,2 @@
-# chars-i
+# CHARS-I
 educational website

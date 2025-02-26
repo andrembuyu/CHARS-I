@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <link rel="stylesheet" href="main.css">
+    <title>CHARS-index Cigarette Addiction Assessment</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>CHARS-index Cigarette Addiction Assessment</h1>
+            <p class="subtitle">A comprehensive evaluation of smoking habits and dependencies</p>
+        </div>
+
+        <div id="quiz">
+            <div class="progress-section">
+                <h2>Progress</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 0%"></div>
+                </div>
+                <div class="section-progress" id="section-progress"></div>
+            </div>
+
+            <div id="current-section"></div>
+            <div class="navigation">
+                <button id="prev-btn" onclick="navigate(-1)" disabled>Previous</button>
+                <button id="next-btn" onclick="navigate(1)">Next</button>
+                <button id="submit-btn" onclick="showResults()" style="display: none;">Submit Assessment</button>
+            </div>
+        </div>
+
+        <div id="results">
+            <h2>Your Assessment Results</h2>
+            <div class="result-card">
+                <h3>Overall Score</h3>
+                <div class="result-score" id="overall-score"></div>
+                <div class="addiction-level" id="addiction-level"></div>
+            </div>
+            <div id="scores-container"></div>
+            <div class="result-card">
+                <h3>Recommendations</h3>
+                <ul class="recommendations" id="recommendations"></ul>
+            </div>
+            <div class="action-buttons">
+                <button onclick="generatePDF()" class="download-btn">Download Results (PDF)</button>
+                <button onclick="window.location.href = 'cai-website.html';" class="view-pdf-btn">Go Back to
+                    Home</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="enhanced-quiz.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</body>
+
+</html>

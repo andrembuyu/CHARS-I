@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - CAI</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(45deg, #1a2a6c, #193948, #4FADC0);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .auth-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .form-control:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .form-floating>label {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-glow {
+            background: linear-gradient(45deg, #ff6b6b, #556270);
+            border: none;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        @keyframes shimmer {
+            from {
+                transform: translateX(-100%) rotate(45deg);
+            }
+
+            to {
+                transform: translateX(100%) rotate(45deg);
+            }
+        }
+
+        .brand-logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #ff6b6b, #556270);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff6b6b;
+            }
+
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #556270;
+            }
+        }
+
+        .form-text {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .auth-link {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .auth-link:hover {
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        .form-select {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+        }
+
+        .form-select:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .form-select option {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+        }
+
+        .password-toggle {
+            position: absolute;
+            top: 50%;
+            right: 1rem;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: rgba(255, 255, 255, 0.7);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container min-vh-100 d-flex justify-content-center align-items-center py-5">
+        <div class="auth-card p-4 p-sm-5" style="width: 100%; max-width: 600px;">
+            <div class="text-center mb-4">
+                <h1 class="brand-logo mb-4">CHARS-I</h1>
+                <h2 class="text-white mb-3">Create Account</h2>
+                <p class="text-white-50">Join our community today</p>
+            </div>
+
+            <!-- Error Message -->
+            <div id="errorMessage" class="alert alert-danger d-none mb-3"></div>
+
+            <form id="signupForm" class="needs-validation" novalidate>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            <label>First Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            <label>Last Name</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            <label>Email address</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input type="number" class="form-control" id="age" placeholder="Age" min="18" required>
+                            <label>Age</label>
+                        </div>
+                        <div class="form-text">Must be 18 or older</div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <label>Gender</label>
+                        </div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="password" placeholder="Password"
+                                pattern=".{8,}" required>
+                            <label>Password</label>
+                            <i class="fas fa-eye password-toggle" id="togglePassword"></i>
+                        </div>
+                        <div class="form-text">Minimum 8 characters</div>
+                    </div>
+                    <div class="col-md-6 position-relative">
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="confirmPassword"
+                                placeholder="Confirm Password" required>
+                            <label>Confirm Password</label>
+                            <i class="fas fa-eye password-toggle" id="toggleConfirmPassword"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-check mt-4 mb-4">
+                    <input class="form-check-input" type="checkbox" id="termsCheck" required>
+                    <label class="form-check-label text-white" for="termsCheck">
+                        I agree to the <a href="#" class="auth-link">Terms of Service</a> and
+                        <a href="#" class="auth-link">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-glow w-100 py-3 mb-4" id="submitBtn">
+                    <span id="submitText"><i class="fas fa-user-plus me-2"></i>Create Account</span>
+                    <span id="loadingSpinner" class="spinner-border spinner-border-sm d-none" role="status"
+                        aria-hidden="true"></span>
+                </button>
+
+                <div class="text-center">
+                    <span class="text-white">Already have an account?</span>
+                    <a href="login.html" class="auth-link ms-2">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Initialize IndexedDB
+        const dbName = "userAuthDB";
+        const dbVersion = 2;
+
+        async function initDB() {
+            return new Promise((resolve, reject) => {
+                const request = indexedDB.open(dbName, dbVersion);
+
+                request.onerror = () => reject(request.error);
+                request.onsuccess = () => resolve(request.result);
+
+                request.onupgradeneeded = (event) => {
+                    const db = event.target.result;
+                    if (!db.objectStoreNames.contains('users')) {
+                        const userStore = db.createObjectStore('users', { keyPath: 'email' });
+                        userStore.createIndex('email', 'email', { unique: true });
+                    }
+                };
+            });
+        }
+
+        // Save user data to IndexedDB
+        async function saveUser(userData) {
+            const db = await initDB();
+            return new Promise((resolve, reject) => {
+                const transaction = db.transaction(['users'], 'readwrite');
+                const userStore = transaction.objectStore('users');
+                const request = userStore.add(userData);
+
+                request.onsuccess = () => {
+                    // Store user in localStorage
+                    localStorage.setItem('currentUser', JSON.stringify({
+                        firstName: userData.firstName,
+                        lastName: userData.lastName,
+                        email: userData.email,
+                        age: userData.age
+                    }));
+                    resolve();
+                };
+                request.onerror = () => reject(request.error);
+            });
+        }
+
+        // Show error message
+        function showError(message) {
+            const errorDiv = document.getElementById('errorMessage');
+            errorDiv.textContent = message;
+            errorDiv.classList.remove('d-none');
+        }
+
+        // Hide error message
+        function hideError() {
+            document.getElementById('errorMessage').classList.add('d-none');
+        }
+
+        // Form submission handler
+        document.getElementById('signupForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            // Hide any previous error messages
+            hideError();
+
+            // Show loading spinner
+            document.getElementById('submitText').classList.add('d-none');
+            document.getElementById('loadingSpinner').classList.remove('d-none');
+
+            // Basic validation
+            if (!this.checkValidity()) {
+                this.classList.add('was-validated');
+                document.getElementById('submitText').classList.remove('d-none');
+                document.getElementById('loadingSpinner').classList.add('d-none');
+                return;
+            }
+
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                showError("Passwords don't match!");
+                document.getElementById('submitText').classList.remove('d-none');
+                document.getElementById('loadingSpinner').classList.add('d-none');
+                return;
+            }
+
+            const age = parseInt(document.getElementById('age').value);
+            if (age < 18) {
+                showError("You must be 18 or older to register!");
+                document.getElementById('submitText').classList.remove('d-none');
+                document.getElementById('loadingSpinner').classList.add('d-none');
+                return;
+            }
+
+            // Collect user data
+            const userData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                age: age,
+                gender: document.getElementById('gender').value,
+                password: password
+            };
+
+            try {
+                // Send data to the backend
+                const response = await fetch('http://localhost:3000/submit', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(userData),
+                });
+
+                if (response.ok) {  // Changed from response.okc to response.ok
+                    const result = await response.text();
+                    alert(result);
+                    window.location.href = 'credentials.html';
+                } else {
+                    throw new Error('Failed to submit form');
+                }
+            } catch (error) {
+                console.error('Backend failed, saving locally:', error);
+                await saveUser(userData); // Save to IndexedDB as fallback
+                showError('Form submitted locally due to backend failure. Please try again later.');
+            } finally {
+                // Hide loading spinner
+                document.getElementById('submitText').classList.remove('d-none');
+                document.getElementById('loadingSpinner').classList.add('d-none');
+            }
+        });
+
+        // Password toggle functionality
+        document.getElementById('togglePassword').addEventListener('click', function () {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordField.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        document.getElementById('toggleConfirmPassword').addEventListener('click', function () {
+            const confirmPasswordField = document.getElementById('confirmPassword');
+            const type = confirmPasswordField.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPasswordField.setAttribute('type', type);
+            this.classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHARS-I - Cigarette Habitual and Addiction Response Susceptibility - Index</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script type="module" src="userManagement.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-lungs me-2"></i>CHARS-I
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#health">Assesment</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#previous-results">Previous results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#footer">About</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-3 mb-2" href="main.html">Take Quiz</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light ms-3" onclick="logout()">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section d-flex align-items-center animate_animated animate__fadeInLeft">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 id="hero-text" class="display-4 fw-bold text-white mb-4">Understand Your Relationship with
+                        Smoking</h1>
+                    <p id="hero-text" class="lead text-white-50 mb-4">Cigarette Habitual and Addiction Response
+                        Susceptibility - Index (CHARS-I) is a
+                        comprehensive assessment
+                        tool designed to help you understand your smoking habits and take control of your health
+                        journey.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img id="hero-image" src="assets/images/hero-section.jpg" alt="Hero Image"
+                        class="img-fluid rounded-3 shadow-lg floating-image" height="700" width="700">
+                </div>
+                <div class="col-lg-6 center">
+                    <a href="main.html" id="hero-btn" class="btn btn-lg btn-primary mb-4">Take the quiz</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" id="numbers-users">
+        <div class="container my-4">
+            <div id="hero-count" class="stat-container">
+                <div class="stat-item">
+                    <div class="stat-value">
+                        <span id="tests-today" class="counting-up" data-target="850">0</span>+
+                    </div>
+                    <div class="stat-label">Tests taken today</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" style="color: #F4B840;">
+                        <span id="tests-india" class="counting-up" data-target="250">0</span>+
+                    </div>
+                    <div class="stat-label">Tests taken in India</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" style="color: #1AB473;">
+                        <span id="total-tests" class="counting-up" data-target="1330">0</span>M+
+                    </div>
+                    <div class="stat-label">Total tests taken</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value" style="color: #6E5CE3;">
+                        <span id="accuracy-rate" class="counting-up" data-target="91">0</span>.2%
+                    </div>
+                    <div class="stat-label">Results rated as accurate or very accurate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="text-dark fw-bold text-center">
+        About our Assessment
+    </h1>
+    <!-- Health section -->
+    <section id="health" class="habit-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="image-container">
+                        <img src="assets/images/health.jpg" alt="Evening Routine" class="img-fluid">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="habit-content">
+                        <div class="habit-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h2 class="section-title">Health</h2>
+                        <p class="text-muted">This section reveals the hidden toll smoking takes on your
+                            body impacting fitness, metabolism, respiratory health, and even your senses. Discover
+                            eye-opening visuals and insights into early signs like weight changes, chronic cough,
+                            and reduced stamina.</p>
+                        <div class="stat-card">
+                            <div class="stat-number">68%</div>
+                            <p class="mb-0">of smokers have their first cigarette within 30 minutes of waking up</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- Psychology Section -->
+    <section id="Pschology" class="habit-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img src="assets/images/psychology.jpg" alt="Work Stress" class="img-fluid">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="habit-content">
+                        <div class="habit-icon bg-success">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h2 class="section-title">Psychology</h2>
+                        <p class="text-muted">This section will help you uncover the psychological grip of smoking,
+                            from fostering dependency and cravings to impairing focus and emotional regulation.
+                            Explore how habits form, cravings disrupt priorities, and smoking becomes a crutch for
+                            deeper issues.</p>
+                        <div class="stat-card">
+                            <div class="stat-number text-success">73%</div>
+                            <p class="mb-0">report smoking more frequently during stressful work periods</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Social Section -->
+    <section id="social" class="habit-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 order-lg-2">
+                    <div class="image-container">
+                        <img src="assets/images/social.jpg" alt="Social Triggers" class="img-fluid">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6 order-lg-1">
+                    <div class="habit-content">
+                        <div class="habit-icon bg-info">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h2 class="section-title">Social</h2>
+                        <p class="text-muted">This section will help you explore how social influences shape and
+                            sustain smoking habits, from familial patterns to peer pressure and societal
+                            perceptions. Discover how smoking bonds groups, isolates individuals, and reinforces
+                            dependence.</p>
+                        <div class="stat-card">
+                            <div class="stat-number text-info">82%</div>
+                            <p class="mb-0">of smokers report increased urges in social situations</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Economics Section -->
+    <section id="economic" class="habit-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="image-container">
+                        <img src="assets/images/economics.jpg" class="img-fluid">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="habit-content">
+                        <div class="habit-icon bg-warning">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <h2 class="section-title">Economic</h2>
+                        <p class="text-muted">This section will assist your understanding of the financial toll
+                            smoking takes, from draining personal budgets to straining household finances. Explore
+                            how smoking diverts funds, disrupts savings goals, and fuels financial stress.</p>
+                        <div class="stat-card">
+                            <div class="stat-number text-warning">91%</div>
+                            <p class="mb-0">of regular smokers report strong urges after meals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+    <!-- take quiz section -->
+    <section id="assessment" class="assessment-section py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Take the Assessment?</h2>
+            <p class="lead mb-4">Get personalized insights into your smoking habits and receive tailored recommendations
+                for a healthier lifestyle.</p>
+            <a href="main.html" class="btn btn-primary btn-lg px-5">Start Quiz Now</a>
+        </div>
+    </section>
+
+    <!-- Previous Results Section -->
+    <section id="previous-results" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-6 fw-bold">Your Previous Quiz Results</h2>
+            <div id="user-results" class="text-center">
+                <!-- Results will be dynamically inserted here -->
+            </div>
+            <!-- Add a "Delete Results" button -->
+            <div class="text-center mt-4">
+                <button id="delete-results-btn" class="btn btn-danger">Delete Results</button>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5 display-6 fw-bold">Testimonials</h2><br>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm border-0 position-relative">
+                        <div class="card-body text-center p-4">
+                            <div class="position-absolute top-0 start-50 translate-middle">
+                                <img src="assets/images/testimonials/jay_m.jpg" alt="jay M"
+                                    class="rounded-circle border-4 border-white shadow"
+                                    style="width: 120px; height: 120px; object-fit: cover;">
+                            </div>
+                            <div class="pt-5 mt-3">
+                                <h5 class="card-title mb-2 fw-bold">Jay M</h5>
+                                <p class="text-muted fst-italic mb-3">"The chars-i assessment helped me understand my
+                                    addiction
+                                    patterns and take concrete steps towards quitting. I'm now smoke-free for 6 months!"
+                                </p>
+                                <div class="text-warning mb-3">
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                </div>
+                                <span class="badge bg-success bg-opacity-10 text-success">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm border-0 position-relative">
+                        <div class="card-body text-center p-4">
+                            <div class="position-absolute top-0 start-50 translate-middle">
+                                <img src="assets/images/testimonials/manvika.jpg" alt="Mandvi"
+                                    class="rounded-circle border-4 border-white shadow"
+                                    style="width: 120px; height: 120px; object-fit: cover;">
+                            </div>
+                            <div class="pt-5 mt-3">
+                                <h5 class="card-title mb-2 fw-bold">Mandvi singh</h5>
+                                <p class="text-muted fst-italic mb-3">"The personalized recommendations were
+                                    eye-opening.
+                                    They helped me create an effective plan to reduce my smoking habits."</p>
+                                <div class="text-warning mb-3">
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <span class="badge bg-success bg-opacity-10 text-success">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card testimonial-card h-100 shadow-sm border-0 position-relative">
+                        <div class="card-body text-center p-4">
+                            <div class="position-absolute top-0 start-50 translate-middle">
+                                <img src="assets/images/testimonials/vipul.jpg" alt="Vipul"
+                                    class="rounded-circle border-4 border-white shadow"
+                                    style="width: 120px; height: 120px; object-fit: cover;">
+                            </div>
+                            <div class="pt-5 mt-3">
+                                <h5 class="card-title mb-2 fw-bold">Vipul</h5>
+                                <p class="text-muted fst-italic mb-3">"Understanding the economic impact of my smoking
+                                    habit
+                                    was a wake-up call. The chars-i assessment changed my perspective completely."</p>
+                                <div class="text-warning mb-3">
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                    <i class="bi bi-star-fill"><i class="fa-solid fa-star"></i></i>
+                                </div>
+                                <span class="badge bg-success bg-opacity-10 text-success">Verified</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5" id="footer">
+        <div class="container">
+            <div class="row">
+                <!-- About Section -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">About CHARS-I</h5>
+                    <p class="text-muted">The Cigarette Habitual and Addiction Response Susceptibility - Index is
+                        dedicated
+                        to helping individuals understand and overcome their smoking habits through comprehensive
+                        assessment
+                        and personalized guidance.</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://chars.index@gmail.com" class="text-white me-3"><i
+                                class="fa-regular fa-envelope"></i></a>
+                        <a href="https://www.instagram.com/chars_index?igsh=MXZpdjRuZmc2bmgxZw==" class="text-white"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-decoration-none">Home</a></li>
+                        <li><a href="#about" class="text-decoration-none">About</a></li>
+                        <li><a href="#assessment" class="text-decoration-none">Take Assessment</a></li>
+                        <li><a href="#testimonials" class="text-muted text-decoration-none">Testimonials</a></li>
+                        <li><a href="#contact" class="text-decoration-none">Contact</a></li>
+                        <li><a href="#privacy-policy" class="text-decoration-none">Privacy Policy</a></li>
+                        <li><a href="#terms-of-service" class="text-decoration-none">Terms of Service</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Referrals Section -->
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3">Contact & Referrals</h5>
+                    <p class="">Have questions? We're here to help.</p>
+                    <a href="#contact" class="btn btn-primary mb-3">Get in Touch</a>
+                    <h6 class="mt-4">Team</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="http://linkedin.com/in/rishab-makwana-91b4ba1ba"
+                                class="text-decoration-none">Rishab Makwana</a></li>
+                        <li><a href="https://www.linkedin.com/in/ananyakumar1301/" class="text-decoration-none">Ananya
+                                Kumar</a></li>
+                        <li><a href="https://www.linkedin.com/in/andre-mbuyu-72243426a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                                class="text-decoration-none">Andre mbuyu</a></li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="my-4">
+
+            <!-- Copyright & Legal -->
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="mb-0">© 2025 Cigarette Habitual and Addiction Response Susceptibility - Index.
+                        All
+                        rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <a href="#privacy-policy" class="text-decoration-none me-3">Privacy Policy</a>
+                    <a href="#terms-of-service" class="text-decoration-none">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Check if user is logged in
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        if (!currentUser) {
+            window.location.href = 'login.html';
+        }
+
+        // Animation observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        // Observe all animated boxes
+        document.querySelectorAll('.animated-box').forEach((el) => observer.observe(el));
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'login.html';
+        }
+
+        document.querySelectorAll('.counting-up').forEach(el => {
+            const target = parseInt(el.dataset.target);
+            let count = 0;
+            const interval = setInterval(() => {
+                el.textContent = count.toLocaleString();
+                if (count >= target) {
+                    clearInterval(interval);
+                }
+                count += Math.ceil(target / 200); // Adjust the increment speed here
+            }, 50);
+        });
+
+        // Display previous quiz results
+        // Display previous quiz results
+        if (currentUser && currentUser.quizResults) {
+            const resultsContainer = document.getElementById('user-results');
+            const scores = currentUser.quizResults;
+
+            const resultsHtml = Object.entries(scores)
+                .filter(([category]) => category !== 'overall')
+                .map(([category, score]) => {
+                    const roundedScore = Math.round(score);
+                    const scoreColor = roundedScore >= 70 ? '#ff4444' :
+                        roundedScore >= 30 ? '#ffa700' : '#00C851';
+
+                    return `
+                <div class="result-card">
+                    <h3>${category.charAt(0).toUpperCase() + category.slice(1)} Assessment</h3>
+                    <div class="result-score" style="color: ${scoreColor}">${roundedScore}%</div>
+                </div>
+            `;
+                }).join('');
+
+            const overallScore = Math.round(scores.overall);
+            const overallScoreHtml = `
+        <div class="overall-score">
+            <h2>Overall Assessment</h2>
+            <div class="result-score">${overallScore}%</div>
+        </div>
+    `;
+
+            resultsContainer.innerHTML = overallScoreHtml + resultsHtml;
+        } else {
+            document.getElementById('previous-results').style.display = 'none';
+        }
+
+        // Add event listener for the "Delete Results" button
+        const deleteResultsBtn = document.getElementById('delete-results-btn');
+        if (deleteResultsBtn) {
+            deleteResultsBtn.addEventListener('click', () => {
+                if (currentUser && currentUser.quizResults) {
+                    // Remove the quizResults property
+                    delete currentUser.quizResults;
+
+                    // Update localStorage
+                    localStorage.setItem('currentUser', JSON.stringify(currentUser));
+
+                    // Hide the "Previous Results" section
+                    document.getElementById('previous-results').style.display = 'none';
+
+                    // Notify the user
+                    alert('Your quiz results have been deleted.');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

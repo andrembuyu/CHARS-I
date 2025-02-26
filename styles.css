@@ -1,0 +1,345 @@
+  @import 'animate.css';
+  html{
+    scroll-behavior: smooth;
+  }
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #858796;
+            --success-color: #1cc88a;
+            --card-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .bg-gradient-primary {
+            background: gradient(45deg, #4e73df 0%, #224abe 100%);
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .hero-section {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #1a2a6c, #193948, #4FADC0);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        #hero-text{
+            animation: fadeInLeft;
+            animation-duration: 2s;
+        }
+        #hero-count{
+            animation: fadeInUp;
+            animation-duration: 1s;
+            opacity: 1;
+            visibility: visible;
+        }
+        #hero-btn{
+            animation: fadeInRight;
+            animation-duration: 2s;
+        }
+        #hero-image{
+            animation: fadeInRight;
+            animation-duration: 2s;
+        }
+        .habit-section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .habit-section:nth-child(even) {
+            background-color: #f8f9fc;
+        }
+
+        .habit-section .image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .habit-content {
+            padding: 2rem;
+        }
+
+        .habit-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .habit-content:hover .habit-icon {
+            transform: scale(1.1);
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(rgba(78, 115, 223, 0.1), rgba(78, 115, 223, 0.3));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+            margin-top: 2rem;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .animated-box {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease-out;
+        }
+
+        .animated-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .floating-image {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .navbar {
+            backdrop-filter: blur(10px);
+            background-color: rgba(33, 37, 41, 0.95) !important;
+        }
+
+        .assessment-section {
+            background: linear-gradient(135deg, #1cc88a 0%, #13855c 100%);
+            color: white;
+        }
+
+        .testimonial-card {
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .stat-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #5D858E;
+            overflow: hidden;
+        }
+
+        .stat-label {
+            font-size: 16px;
+            color: #7b8a8e;
+        }
+
+        .counting-up {
+            display: inline-block;
+            min-width: 1.2em;
+            animation: countUp 2s ease-in-out;
+        }
+
+        @keyframes countUp {
+            from {
+                content: '0';
+            }
+
+            to {
+                content: attr(data-target);
+            }
+        }
+
+        blow {
+            background: linear-gradient(45deg, #ff6b6b, #13855c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glow 6s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff6b6b;
+            }
+
+            to {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #556270;
+            }
+        }
+
+        #btn-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-items: center;
+        }
+
+        #btn-center a {
+            font-size: 40px;
+        }
+        .result-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .result-score {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        text-align: center;
+        margin: 1rem 0;
+        font-weight: bold;
+    }
+
+    .overall-score {
+        margin-bottom: 2rem;
+    }
+    #delete-results-btn {
+        background-color: #dc3545; /* Red color for danger actions */
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    #delete-results-btn:hover {
+        background-color: #c82333; /* Darker red on hover */
+    }
+     .modal-content {
+        border-radius: 10px;
+    }
+
+    .modal-header {
+        background-color: #2563eb;
+        color: white;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .modal-title {
+        font-size: 1.5rem;
+    }
+
+    .modal-body {
+        padding: 20px;
+    }
+
+    .result-score {
+        font-size: 2rem;
+        color: #2563eb;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .level-indicator {
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 10px 0;
+        color: #666;
+    }
+
+    .risk-description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #333;
+    }
